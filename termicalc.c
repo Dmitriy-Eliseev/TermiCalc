@@ -27,7 +27,6 @@
  ********************************************************************************/
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include "tinyexpr.h"
 
@@ -115,7 +114,8 @@ int main(int argc, char *argv[])
     while (1) {
         printf("> ");
         fgets(input, sizeof(input), stdin);
-
+        
+        if (input[0] == '\n') continue;
         if (input[0] == 'q' || input[0] == 'Q') break;
         if (input[0] == 'h' || input[0] == 'H' || input[0] == '?') print_help();
         
