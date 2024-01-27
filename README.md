@@ -13,7 +13,8 @@ gcc termicalc.c tinyexpr.c -lm -o calc
 
 ### Supported platforms
 - Windows: tested on Windows 7, 8.1, 10, 11
-- Linux: tested on Ubuntu 18.04, Linux Mint 20.3, Debian 10.13, OpenSuse Leap 15.4, Elbrus Linux 7.2 (e2k), Armbian 23.11(aarch64)
+- Linux: tested on Ubuntu 18.04, Linux Mint 20.3, Debian 10.13, OpenSuse Leap 15.4, Elbrus Linux 7.2 (e2k),
+         Armbian 23.11(aarch64)
 - BSD: tested on NetBSD 9.3
 ## Usage
 ```
