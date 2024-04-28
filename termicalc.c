@@ -99,10 +99,13 @@ int main(int argc, char *argv[])
         // calculating expressions in parameters
         for (i = 1; i < argc; i++) {
             result = te_interp(argv[i], &error);
+            if (argc > 2) {
+            	printf("%s ", argv[i]);
+            }
             if (error) {
-                printf("%s = error\n", argv[i]);
+                printf("= error\n");
             } else {
-                printf("%s = %g\n", argv[i], result);
+                printf("= %g\n", result);
             }
         }
 
