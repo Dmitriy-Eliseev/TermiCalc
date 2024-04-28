@@ -32,55 +32,56 @@
 
 void print_help()
 {
-    puts("\nTermiCalc v1.3");
-    puts("Copyright (C) 2023 Dmitriy Eliseev");
-    puts("Based on TinyExpr: https://github.com/codeplea/tinyexpr\n");
-    
-    puts("This program comes with ABSOLUTELY NO WARRANTY");
-    puts("This is free software, and you are welcome to redistribute it");
-    puts("under certain conditions.\n");
-
-    puts("This is a simple console calculator that allows you to calculate arithmetic");
-    puts("and trigonometric expressions.\n");
-    
-    puts("Usage:\n");
-
-    puts("$ calc [expression ...]\n");
-
-    puts("$ calc [expression1] [expression2] [expression ...]\n");
-    
-    puts("$ calc\n");
-
-    puts("If no expressions are specified, the program runs interactively and accepts");
-    puts("expressions from the keyboard. To exit interactive mode, enter q.\n");
-
-    puts("If one or more expressions are specified, the program calculates them and");
-    puts("displays the results on the screen.\n");
-
-    puts("To get help on the program, use the \"help\" or \"--help\" parameters or enter \"h\"");
-    puts("or \"?\" in the interactive mode line.\n");
-    
-    puts("Examples:\n");
-
-    puts("$ calc");
-    puts("Enter an expression to calculate or q to exit:");
-    puts("> 2+2");
-    puts("= 4");
-    puts("> 3*4-5/2");
-    puts("= 9.5");
-    puts("> sin(pi/6)");
-    puts("= 0.5");
-    puts("> 12^(sqrt(20-48/12))");
-    puts("= 20736");
-    puts("> h");
-    puts("> q\n");
-
-    puts("$ calc 18-3 145/4+12*14 pi*12^2");
-    puts("18-3 = 15");
-    puts("145/4+12*14 = 204.25");
-    puts("pi*12^2 = 452.389\n");
-
-    puts("$ calc help\n");
+   puts("\
+\nTermiCalc v1.3\n\
+Copyright (C) 2023 Dmitriy Eliseev\n\
+Based on TinyExpr: https://github.com/codeplea/tinyexpr\n\n\
+\
+This program comes with ABSOLUTELY NO WARRANTY\n\
+This is free software, and you are welcome to redistribute it\n\
+under certain conditions.\n\n\
+\
+This is a simple console calculator that allows you to calculate arithmetic\n\
+and trigonometric expressions.\n\n\
+\
+Usage:\n\n\
+\
+$ calc [expression ...]\n\n\
+\
+$ calc [expression1] [expression2] [expression ...]\n\n\
+\
+$ calc\n\n\
+\
+If no expressions are specified, the program runs interactively and accepts\n\
+expressions from the keyboard. To exit interactive mode, enter q.\n\n\
+\
+If one or more expressions are specified, the program calculates them and\n\
+displays the results on the screen.\n\n\
+\
+To get help on the program, use the \"help\" or \"--help\" parameters or enter \"h\"\n\
+or \"?\" in the interactive mode line.\n\n\
+\
+Examples:\n\n\
+\
+$ calc\n\
+Enter an expression to calculate or q to exit:\n\
+> 2+2\n\
+= 4\n\
+> 3*4-5/2\n\
+= 9.5\n\
+> sin(pi/6)\n\
+= 0.5\n\
+> 12^(sqrt(20-48/12))\n\
+= 20736\n\
+> h\n\
+> q\n\n\
+\
+$ calc 18-3 145/4+12*14 pi*12^2\n\
+18-3 = 15\n\
+145/4+12*14 = 204.25\n\
+pi*12^2 = 452.389\n\n\
+\
+$ calc help\n");
 }
 
 int main(int argc, char *argv[]) 
