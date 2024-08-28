@@ -2,20 +2,19 @@
 Simple console calculator with trigonometric functions
 
 ## Compilation
-on Windows
 ```
-gcc termicalc.c tinyexpr.c -lm -o calc.exe
+gcc termicalc.c tinyexpr.c -lm -O3 -o calc
 ```
-on Unix-like systems
+or just use the make command
 ```
-gcc termicalc.c tinyexpr.c -lm -o calc
+make
 ```
 
 ### Supported platforms
 - Windows: tested on Windows 7, 8.1, 10, 11
-- Linux: tested on Ubuntu 18.04, Linux Mint 20.3, Debian 10.13, OpenSuse Leap 15.4, Elbrus Linux 7.2 (e2k),
+- Linux: tested on Ubuntu 20.04, Linux Mint 21.3, Debian 10.13, OpenSuse Leap 15.4, Elbrus Linux 7.2 (e2k),
          Armbian 23.11(aarch64)
-- BSD: tested on NetBSD 9.3, OpenBSD 7.4
+- BSD: tested on NetBSD 9.4, OpenBSD 7.4
 ## Usage
 ```
 calc [expression ...]
