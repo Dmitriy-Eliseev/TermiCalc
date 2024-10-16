@@ -1,4 +1,4 @@
-/********************************************************************************
+/*******************************************************************************
  *  termicalc.c
  *  created: 2023-05-10
  *       _______                  _  _____      _      
@@ -10,8 +10,8 @@
  *  
  *  TermiCalc  --  simple console calculator with trigonometric functions
  *  Copyright (C) 2023 Dmitriy Eliseev
- *  <dmitriy.software@gmail.com>
- *
+ *  <code.eliseev2003.dmitriy@yandex.com>
+ * 
  *  TermiCalc is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
  *  the Free Software Foundation, either version 3 of the License, or
@@ -24,13 +24,13 @@
  *
  *  You should have received a copy of the GNU General Public License
  *  along with TermiCalc.  If not, see <http://www.gnu.org/licenses/>.
- ********************************************************************************/
+ ******************************************************************************/
 
 #include <stdio.h>
 #include <string.h>
 #include "tinyexpr.h"
 
-void print_help()
+void print_help(void)
 {
    puts("\
 \nTermiCalc v1.3\n\
@@ -53,7 +53,7 @@ $ calc [expression1] [expression2] [expression ...]\n\n\
 $ calc\n\n\
 \
 If no expressions are specified, the program runs interactively and accepts\n\
-expressions from the keyboard. To exit interactive mode, enter q.\n\n\
+expressions from the keyboard. To exit interactive mode, enter \"q\"\n\n\
 \
 If one or more expressions are specified, the program calculates them and\n\
 displays the results on the screen.\n\n\
@@ -91,45 +91,50 @@ int main(int argc, char *argv[])
     int error;
     int i;
 
-    if (argc > 1) {
-        if (strcmp(argv[1], "help") == 0 || strcmp(argv[1], "--help") == 0 || strcmp(argv[1], "h") == 0 || strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "?") == 0) {
+    if ( argc > 1 ) {
+        if ( strcmp(argv[1], "help") == 0 || strcmp(argv[1], "--help" ) == 0 ||
+            strcmp(argv[1], "h") == 0 || strcmp(argv[1], "-h") == 0 ||
+            strcmp(argv[1], "?") == 0) {
             print_help();
             return 0;
         }
 
-        // calculating expressions in parameters
-        for (i = 1; i < argc; i++) {
+        /* calculating expressions in parameters */
+        for ( i=1; i<argc; i++ ) {
             result = te_interp(argv[i], &error);
-            if (argc > 2) {
+            if ( argc > 2 )
             	printf("%s ", argv[i]);
-            }
-            if (error) {
+            
+            if ( error )
                 printf("= error\n");
-            } else {
+            else
                 printf("= %g\n", result);
-            }
         }
 
         return 0;
     }
 
     // Interactive mode
-    printf("TermiCalc v1.3\nCopyright (C) 2023 Dmitriy Eliseev\n\nEnter an expression to calculate or q to exit:\n");
-    while (1) {
+    printf("TermiCalc v1.3\nCopyright (C) 2023 Dmitriy Eliseev\n\n"
+           "Enter an expression to calculate or q to exit:\n");
+    while ( 1 ) {
         printf("> ");
         fgets(input, sizeof(input), stdin);
         
-        if (input[0] == '\n') continue;
-        if (input[0] == 'q' || input[0] == 'Q') break;
-        if (input[0] == 'h' || input[0] == 'H' || input[0] == '?') print_help();
+        if ( input[0] == '\n' )
+            continue;
         
+        if ( input[0] == 'q' || input[0] == 'Q' )
+            break;
+        
+        if ( input[0] == 'h' || input[0] == 'H' || input[0] == '?' )
+            print_help();
         else {
             result = te_interp(input, &error);
-            if (error) {
+            if ( error )
                 printf("Error: invalid expression\n");
-            } else {
+            else
                 printf("= %g\n", result);
-            }
         }
     }
 
