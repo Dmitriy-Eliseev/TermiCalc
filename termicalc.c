@@ -85,7 +85,8 @@ pi*12^2 = 452.389\n\n\
 $ calc help\n");
 }
 
-void to_lower(char str[]) {
+void to_lower(char str[])
+{
     int i;
     for ( i=0; str[i]!='\0'; i++ )
         str[i] = tolower((unsigned char)str[i]);
