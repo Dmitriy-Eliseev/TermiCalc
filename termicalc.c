@@ -28,6 +28,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include "tinyexpr.h"
 
 void print_help(void)
@@ -84,6 +85,12 @@ pi*12^2 = 452.389\n\n\
 $ calc help\n");
 }
 
+void to_lower(char str[]) {
+    int i;
+    for ( i=0; str[i]!='\0'; i++ )
+        str[i] = tolower((unsigned char)str[i]);
+}
+
 int main(int argc, char *argv[]) 
 {
     char input[1000];
@@ -101,6 +108,7 @@ int main(int argc, char *argv[])
 
         /* calculating expressions in parameters */
         for ( i=1; i<argc; i++ ) {
+            to_lower(argv[i]);
             result = te_interp(argv[i], &error);
             if ( argc > 2 )
             	printf("%s ", argv[i]);
@@ -123,8 +131,10 @@ int main(int argc, char *argv[])
         
         if ( input[0] == '\n' )
             continue;
+
+        to_lower(input);
         
-        if ( input[0] == 'q' || input[0] == 'Q' )
+        if ( input[0] == 'q' )
             break;
         
         if ( input[0] == 'h' || input[0] == 'H' || input[0] == '?' )
